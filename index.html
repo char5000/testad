@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>To-Do List</h1>
+        <form id="todo-form" class="todo-form" autocomplete="off">
+          <label class="sr-only" for="todo-input">Add a task</label>
+          <input
+            id="todo-input"
+            type="text"
+            name="task"
+            placeholder="Add a new task"
+            required
+          />
+          <button type="submit">Add</button>
+        </form>
+      </header>
+
+      <section class="todo-controls" aria-label="Filter tasks">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="active">Active</button>
+        <button data-filter="completed">Completed</button>
+        <button id="clear-completed" class="clear">Clear Completed</button>
+      </section>
+
+      <section>
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <template id="todo-item-template">
+      <li class="todo-item">
+        <label>
+          <input type="checkbox" />
+          <span class="todo-item__title"></span>
+        </label>
+        <button class="todo-item__delete" aria-label="Delete task">&times;</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
