@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slack Clone</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar">
+        <header class="workspace">
+          <h1>Acme HQ</h1>
+          <span class="status">You</span>
+        </header>
+        <section class="channel-section">
+          <div class="section-title">Channels</div>
+          <ul id="channel-list" class="channel-list"></ul>
+          <button id="create-channel" class="channel-button">+ Add channel</button>
+        </section>
+      </aside>
+
+      <main class="main">
+        <header class="channel-header">
+          <div>
+            <h2 id="channel-name">Select a channel</h2>
+            <p id="channel-description"></p>
+          </div>
+          <div class="user-settings">
+            <label for="display-name">Display name</label>
+            <input id="display-name" type="text" maxlength="50" placeholder="Your name" />
+          </div>
+        </header>
+        <section id="message-pane" class="message-pane">
+          <ul id="message-list" class="message-list"></ul>
+        </section>
+        <footer class="composer">
+          <form id="message-form">
+            <textarea id="message-input" rows="2" placeholder="Message the channel" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </footer>
+      </main>
+    </div>
+
+    <template id="message-template">
+      <li class="message">
+        <div class="avatar"></div>
+        <div>
+          <div class="meta">
+            <span class="author"></span>
+            <time class="timestamp"></time>
+          </div>
+          <div class="body"></div>
+        </div>
+      </li>
+    </template>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
